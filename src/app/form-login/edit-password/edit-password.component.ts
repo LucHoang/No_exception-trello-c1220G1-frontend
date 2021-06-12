@@ -20,13 +20,12 @@ export class EditPasswordComponent implements OnInit {
   downloadURL: Observable<string>;
   appUser: ILogin = {
     id: 0,
-    avatar: '',
-    email: '',
     userName: '',
     passWord: '',
+    email: '',
+    confirmPassword: '',
+    phone: '',
     role: [],
-    oldPassWord: '',
-    newPassWord: ''
   };
   message: string = 'Old password incorrect, please try again';
   isPasswordCorrect: boolean = false;

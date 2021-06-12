@@ -22,6 +22,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {LabelsModule} from './labels/labels.module';
 import { HeaderComponent } from './header/header.component';
 import {FormLoginModule} from './form-login/form-login.module';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
     declarations: [
@@ -29,6 +34,7 @@ import {FormLoginModule} from './form-login/form-login.module';
         HeaderComponent
     ],
     imports: [
+      MDBBootstrapModule.forRoot(),
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
@@ -45,13 +51,16 @@ import {FormLoginModule} from './form-login/form-login.module';
         AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
         BrowserAnimationsModule,
         LabelsModule,
+      MatCardModule,
+      MatButtonModule,
+      ReactiveFormsModule
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
     ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
   ],
     bootstrap: [AppComponent]
 })

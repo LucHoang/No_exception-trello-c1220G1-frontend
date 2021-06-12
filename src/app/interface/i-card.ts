@@ -5,5 +5,5 @@ export interface ICard {
   title? : string;
   content?: string;
   position?: number;
-  list?: IList
+  list?: IList;
 }

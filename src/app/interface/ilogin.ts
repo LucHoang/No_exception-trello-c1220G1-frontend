@@ -1,9 +1,11 @@
 export interface ILogin {
   id: number;
-  avatar: string;
+  avatar?: string;
   email: string;
   userName: string;
   passWord: string;
+  phone: string;
+  confirmPassword: string;
   role: [];
   oldPassWord?: string;
   newPassWord?: string;

@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   }
   getNotification(){
     this.noticficationService.getNotifications().subscribe(notifications =>{
-      this.notifications = notifications
+      this.notifications = notifications;
     })
   }
   openModalWithClass(template: TemplateRef<any>) {

@@ -11,6 +11,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { LogOutComponent } from './log-out/log-out.component';
 import { EditPasswordComponent } from './edit-password/edit-password.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -23,7 +25,10 @@ import { EditPasswordComponent } from './edit-password/edit-password.component';
   exports: [
     LoginComponent,
     LogOutComponent,
-    EditPasswordComponent
+    EditPasswordComponent,
+    MatButtonModule,
+    MatToolbarModule,
+    MatCardModule
   ],
     imports: [
         CommonModule,
@@ -33,7 +38,10 @@ import { EditPasswordComponent } from './edit-password/edit-password.component';
         MatFormFieldModule,
         MatButtonModule,
         MatInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      MatButtonModule,
+      MatToolbarModule,
+      MatCardModule
     ]
 })
 export class FormLoginModule { }

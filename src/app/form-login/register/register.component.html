@@ -1,53 +1,104 @@
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">REGISTER FORM</h1>
-  </div>
 
-</section>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign up Page</title>
+  <!--Made with love by Mutiullah Samim -->
+
+  <!--Bootsrap 4 CDN-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!--Fontawesome CDN-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!--Custom styles-->
+  <link rel="stylesheet" type="text/css" href="register.component.scss">
+</head>
+<body>
 <div class="container">
   <form (ngSubmit)="registionUser()" [formGroup]="registerForm">
-    <div class="mb-3">
-      <mat-icon color="warn">account_box</mat-icon>
-      <label for="userName" class="form-label">User Name</label>
+  <div class="d-xl-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3>Sign up</h3>
+      </div>
+      <div class="card-body">
 
-      <input type="text" class="form-control" id="userName" placeholder="Enter your user name" [(ngModel)]="login.userName"
-             formControlName="userName" required>
-      <small *ngIf="registerForm.get('userName')?.invalid " class="text-danger" >
-        Enter User name of at least 3 characters and do not use special characters !
-      </small>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter your password" [(ngModel)]="login.passWord" formControlName="passWord" required>
-      <small *ngIf="registerForm.get('userName')?.invalid " class="text-danger" >
-        Enter Password of at least 6 characters and do not use special characters !
-      </small>
-    </div>
-    <div class="mb-3">
-      <mat-icon color="warn"> email</mat-icon>
-      <label for="email" class="form-label">Email</label>
-      <input type="text" class="form-control" id="email" placeholder="Enter your email" [(ngModel)]="login.email" formControlName="email" required>
-    </div>
-    <div class="mb-3">
-      <mat-icon color="warn"> satellite</mat-icon>
-      <label for="avata" class="form-label">Avata</label>
-      <br>
-      <input type="file"
-             id="avata"
-             #userPhoto
-             (change)="onFileSelected($event)"
-             name="image"
-             autocomplete="off">
-    </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="float: right; width: 120px">
-      <button class="btn btn-primary" type="button" [routerLink]="'/login'">Back to login</button>
-    </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
-      <button class="btn btn-primary" type="submit" value="submit" [disabled]="registerForm.invalid">Register</button>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="username" [(ngModel)]="login.userName" formControlName="userName" required>
+            <div style="color: red;" *ngIf="registerForm.get('userName')?.invalid ">
+              Enter at least 3 characters and do not use special characters!
+            </div>
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="password"  [(ngModel)]="login.passWord" formControlName="passWord" required>
+
+              <div style="color: red;" *ngIf="registerForm.get('passWord')?.invalid ">
+                Enter at least 3 characters and do not use special characters!
+              </div>
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="Confirm password"  [(ngModel)]="login.confirmPassword" formControlName="confirmPassword" required>
+
+            <div style="color: red;" *ngIf="registerForm.get('confirmPassword')?.invalid ">
+              Does not match to your password!
+            </div>
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+            </div>
+            <input type="email" class="form-control" placeholder="email"  [(ngModel)]="login.email" formControlName="email" required>
+
+            <div style="color: red;" *ngIf="registerForm.get('email')?.invalid " >
+              Use both letters and numbers!
+              Example: karey2407@gmail.com
+            </div>
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="phone"   [(ngModel)]="login.phone" formControlName="phone" required>
+
+            <div style="color: red;" *ngIf="registerForm.get('phone')?.invalid " >
+              Must be 10 digits and start with 0!
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Register" class="btn float-right login_btn">
+          </div>
+
+      </div>
+      <div class="card-footer">
+        <div class="d-xl-flex justify-content-center links">
+          Back to <a [routerLink]="'/login'">Sign in</a>
+        </div>
+      </div>
     </div>
 
+  </div>
   </form>
 </div>
+</body>
+</html>
 
 

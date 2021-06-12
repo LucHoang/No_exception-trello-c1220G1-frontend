@@ -18,10 +18,11 @@ const API_BACKEND = environment.api_url;
 export class LoginComponent implements OnInit {
   login: ILogin = {
     id: 0,
-    avatar: '',
-    email: '',
     userName: '',
     passWord: '',
+    email: '',
+    confirmPassword: '',
+    phone: '',
     role: [],
   };
   // @ts-ignore

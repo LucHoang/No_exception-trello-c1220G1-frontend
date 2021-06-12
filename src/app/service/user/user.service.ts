@@ -13,10 +13,11 @@ const API_USER = environment.api_url;
 export class UserService {
   log: ILogin = {
     id: 0,
-    avatar: '',
-    email: '',
     userName: '',
     passWord: '',
+    email: '',
+    confirmPassword: '',
+    phone: '',
     role: [],
   };
   constructor(private httpClient: HttpClient) {
